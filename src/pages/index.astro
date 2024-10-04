@@ -1,10 +1,11 @@
 ---
+import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		
+	<main class="bg-[url(img/bg.png)] bg-cover bg-no-repeat bg-bottom min-h-screen w-full max-w-3xl mx-auto z-0">
+		<Hero />
 	</main>
 </Layout>
 

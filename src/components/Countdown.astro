@@ -1,0 +1,78 @@
+---
+interface Props {
+    deadline: string
+}
+
+const { deadline } = Astro.props
+---
+
+<div data-date={ deadline }>
+    <div>
+        <span data-days>00</span>
+        <span>Días</span>
+    </div>
+    <div>
+        <span data-hours>00</span>
+        <span>Horas</span>
+    </div>
+    <div>
+        <span data-minutes>00</span>
+        <span>Min.</span>
+    </div>
+    <div>
+        <span data-seconds>00</span>
+        <span>Seg.</span>
+    </div>
+</div>
+
+<script>
+    const seconds = 1000
+    const minutes = seconds * 60
+    const hours = minutes * 60
+    const days = hours * 24
+
+    function init() {
+        const $deadline = document.querySelector('[data-date]')
+        if (!$deadline) return
+
+        const $days = document.querySelector('[data-days]')
+        const $hours = document.querySelector('[data-hours]')
+        const $minutes = document.querySelector('[data-minutes]')
+        const $seconds = document.querySelector('[data-seconds]')
+
+        const deadline = $deadline.getAttribute('data-date')
+        if (!deadline) return
+
+        const endDate = new Date(deadline).getTime()
+
+        const formatTime = (time: number) => {
+            return Math.floor(time).toString().padStart(2,"0")
+        }
+
+        function updateCountdown() {
+            const now = Date.now()
+            const diff = endDate - now
+
+            if ($days instanceof HTMLElement) {
+                $days.innerText = formatTime(diff / days)
+            }
+
+            if ($hours instanceof HTMLElement) {
+                $hours.innerText = formatTime((diff % days) / hours )
+            }
+
+            if ($minutes instanceof HTMLElement) {
+                $minutes.innerText = formatTime((diff % hours) / minutes )
+            }
+
+            if ($seconds instanceof HTMLElement) {
+                $seconds.innerText = formatTime((diff % minutes) / seconds )
+            }
+        }
+
+        setInterval(updateCountdown, seconds);
+        
+    }
+
+    init()
+</script>

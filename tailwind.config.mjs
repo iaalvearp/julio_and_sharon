@@ -8,12 +8,11 @@ export default {
 			'montse': 'sweet'
 		},
 		colors: {
-			'primary': '#',
-			'text': '#',
-			'bg': '#'
+			'primary': '#3D4439',
+			'text': '#EEE2D2',
+			'accent': '#B45E30'
 		}
 	},
 	plugins: [
-		require('tailwindcss-animated')
 	],
 }
