@@ -10,7 +10,8 @@ export default {
 		colors: {
 			'primary': '#3D4439',
 			'text': '#EEE2D2',
-			'accent': '#B45E30'
+			'accent': '#B45E30',
+			'bg': '#F9F3E9'
 		}
 	},
 	plugins: [
