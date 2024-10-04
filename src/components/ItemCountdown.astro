@@ -1,0 +1,15 @@
+---
+
+interface Props {
+    id: string,
+    text: string
+}
+
+ const { id, text } = Astro.props
+
+---
+
+<div>
+    <span id={ id } class="flex flex-col justify-center items-center gap-y-2">00</span>
+    <span>{ text }</span>
+</div>

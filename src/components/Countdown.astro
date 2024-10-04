@@ -1,4 +1,6 @@
 ---
+import ItemCountdown from './ItemCountdown.astro'
+
 interface Props {
     deadline: string
 }
@@ -6,23 +8,23 @@ interface Props {
 const { deadline } = Astro.props
 ---
 
-<div data-date={ deadline }>
-    <div>
-        <span data-days>00</span>
-        <span>Días</span>
-    </div>
-    <div>
-        <span data-hours>00</span>
-        <span>Horas</span>
-    </div>
-    <div>
-        <span data-minutes>00</span>
-        <span>Min.</span>
-    </div>
-    <div>
-        <span data-seconds>00</span>
-        <span>Seg.</span>
-    </div>
+<div data-date={ deadline } class="flex flex-row w-max h-max gap-4 justify-center items-center py-8 px-12 font-avenir bg-primary text-text rounded-3xl mx-auto">
+    <ItemCountdown
+    id='data-days'
+    text='Días'
+    />
+    <ItemCountdown
+    id='data-hours'
+    text='Horas'
+    />
+    <ItemCountdown
+    id='data-minutes'
+    text='Min.'
+    />
+    <ItemCountdown
+    id='data-seconds'
+    text='Seg.'
+    />
 </div>
 
 <script>
@@ -35,10 +37,10 @@ const { deadline } = Astro.props
         const $deadline = document.querySelector('[data-date]')
         if (!$deadline) return
 
-        const $days = document.querySelector('[data-days]')
-        const $hours = document.querySelector('[data-hours]')
-        const $minutes = document.querySelector('[data-minutes]')
-        const $seconds = document.querySelector('[data-seconds]')
+        const $days = document.getElementById('data-days')
+        const $hours = document.getElementById('data-hours')
+        const $minutes = document.getElementById('data-minutes')
+        const $seconds = document.getElementById('data-seconds')
 
         const deadline = $deadline.getAttribute('data-date')
         if (!deadline) return

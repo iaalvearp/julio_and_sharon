@@ -3,9 +3,9 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		fontFamily: {
-			'brand': 'athelas',
-			'against': 'avenir',
-			'montse': 'sweet'
+			'athelas': 'athelas',
+			'avenir': 'avenir',
+			'sweet': 'sweet'
 		},
 		colors: {
 			'primary': '#3D4439',
