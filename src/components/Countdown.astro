@@ -8,7 +8,7 @@ interface Props {
 const { deadline } = Astro.props
 ---
 
-<div data-date={ deadline } class="flex flex-row w-max h-max gap-4 justify-center items-center py-5 px-10 font-avenir bg-primary text-text rounded-lg mx-auto mt-2">
+<div data-date={ deadline } class="flex flex-row w-max h-max gap-4 justify-center items-center py-5 md:py-8 px-10 md:px-16 font-avenir bg-primary text-text rounded-lg md:rounded-2xl mx-auto mt-2">
     <ItemCountdown
     id='data-days'
     text='Días'
