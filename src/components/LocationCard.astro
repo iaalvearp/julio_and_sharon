@@ -15,11 +15,11 @@ const { src, title, hour, location, address, href } = Astro.props
     <picture class="block aspect-square w-20 mx-auto">
         <img src={ src } alt="">
     </picture>
-    <h2 class="font-sweet text-[40px] text-primary">{ title }</h2>
-    <h3 class="text-lg mb-2">{ hour }</h3>
-    <p class="text-sm text-pretty font-bold">{ location }</p>
-    <p class="text-sm text-pretty my-4">{ address }</p>
-    <a href={ href } class="flex justify-center items-center w-full py-1 mx-auto text-text bg-primary rounded-lg">
+    <h2 class="font-sweet text-[40px] md:text-6xl text-primary md:mt-4 md:mb-2">{ title }</h2>
+    <h3 class="text-lg md:text-3xl mb-2">{ hour }</h3>
+    <p class="text-sm md:text-xl text-pretty font-bold">{ location }</p>
+    <p class="text-sm md:text-xl text-pretty my-4">{ address }</p>
+    <a href={ href } class="flex justify-center items-center w-full max-w-60 py-1 mx-auto text-text bg-primary rounded-lg">
         <svg
         width="24"
         height="24"
