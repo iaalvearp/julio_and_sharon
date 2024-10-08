@@ -11,7 +11,8 @@ export default {
 			'primary': '#3D4439',
 			'text': '#EEE2D2',
 			'accent': '#B45E30',
-			'bg': '#F9F3E9'
+			'bg': '#F9F3E9',
+			'pink': '#F4DEBE'
 		}
 	},
 	plugins: [
