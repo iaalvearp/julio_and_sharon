@@ -26,6 +26,36 @@ const { title } = Astro.props;
 	.flip {
 		transform: rotateY(180deg) rotate(45deg);
 	}
+	.item-right {
+        flex-direction: row-reverse;
+    }
+    .item-left {
+        flex-direction: row;
+    }
+    .side-right {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    .side-left {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    .line-right, .line-left {
+        transform-origin: left;
+        width: 0;
+    }
+    .line-left {
+        transform-origin: right;
+    }
+	
+	.show-line {
+		width: 100%;
+		max-width: 80px;
+    }
+	.appears {
+		transform: translateX(0%);
+		opacity: 1;
+	}
 	@font-face {
 		font-family: "athelas";
 		src: url('/fonts/athelas.ttc');
@@ -40,3 +70,41 @@ const { title } = Astro.props;
 		src: url('/fonts/sweet.ttf');
 	}
 </style>
+
+<script>
+
+	const items = document.querySelectorAll('.side-right, .side-left')
+	const observer = new IntersectionObserver((items) => {
+		items.forEach(item => {
+			if (item.isIntersecting) {
+				item.target.classList.add("appears")
+				observer.unobserve(item.target)
+			}
+		})    
+	}, {
+		threshold: 0.4,
+	})
+
+
+	items.forEach(item => {
+		observer.observe(item)
+	})
+
+	const lines = document.querySelectorAll('.line-right, .line-left')
+	const lineObserver = new IntersectionObserver((lines) => {
+		lines.forEach(line => {
+			if (line.isIntersecting) {
+				line.target.classList.toggle("show-line")
+				lineObserver.unobserve(line.target)
+			}
+		})    
+	}, {
+		threshold: 0.5,
+	})
+
+	lines.forEach(line => {
+		lineObserver.observe(line)
+	})
+
+
+</script>
