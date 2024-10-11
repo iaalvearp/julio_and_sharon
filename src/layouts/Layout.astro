@@ -60,6 +60,76 @@ const { title } = Astro.props;
 		transform: translateY(0%);
 		opacity: 1;
 	}
+	.softMove {
+        animation: softMove 8s linear infinite both;
+    }
+	.upDownMove {
+		animation: upDownMove 10s ease-in infinite both;
+	}
+	.flipUpDownMove {
+		transform: rotateY(180deg);
+		animation: flipUpDownMove 10s ease-in infinite both;
+	}
+	.flipSoftMove {
+		transform: rotateY(180deg);
+		animation: flipSoftMove 10s ease-in infinite both;
+	}
+    @keyframes softMove {
+        0% {
+            transform: rotate(2deg) translate(0);
+        }
+        50% {
+            transform: rotate(0) translate(10px);
+        }
+        100% {
+            transform: rotate(2deg) translate(1px);
+        }
+    }
+	@keyframes upDownMove {
+		25% {
+			transform: rotate(25deg);
+		}
+		50% {
+			transform: rotate(40deg);
+		}
+		75% {
+			transform: rotate(15deg);
+		}
+	}
+	@keyframes flipSoftMove {
+		0% {
+			transform: rotateY(180deg);
+		}
+		25% {
+			transform: rotate(25deg) rotateY(180deg);
+		}
+		50% {
+			transform: rotate(40deg) rotateY(180deg);
+		}
+		75% {
+			transform: rotate(15deg) rotateY(180deg);
+		}
+		100% {
+			transform: rotateY(180deg);
+		}
+	}
+	@keyframes flipUpDownMove {
+		0% {
+			transform: rotateY(180deg);
+		}
+		25% {
+			transform: rotate(20deg) rotateY(180deg);
+		}
+		50% {
+			transform: rotate(-40deg) rotateY(180deg);
+		}
+		75% {
+			transform: rotate(10deg) rotateY(180deg);
+		}
+		100% {
+			transform: rotateY(180deg);
+		}
+	}
 	@font-face {
 		font-family: "athelas";
 		src: url('/fonts/athelas.ttc');
