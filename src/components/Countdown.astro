@@ -55,6 +55,14 @@ const { deadline } = Astro.props
             const now = Date.now()
             const diff = endDate - now
 
+            if (diff <= 0) {
+                $days.innerText = '00'
+                $hours.innerText = '00'
+                $minutes.innerText = '00'
+                $seconds.innerText = '00'
+                return
+            }
+
             if ($days instanceof HTMLElement) {
                 $days.innerText = formatTime(diff / days)
             }
